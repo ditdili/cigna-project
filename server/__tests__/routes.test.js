@@ -36,4 +36,17 @@ describe('GET /individuals', () => {
       expect(res.body).toEqual(expectedResponse);
     });
   });
+
+  describe('GET non-existent route', () => {
+    it('should return 404 Not Found', async () => {
+      await supertest(app).get('/wrongroute').expect(404);
+    });
+
+    it('should contain correct message', async () => {
+      const message = 'Route not found';
+      const res = await supertest(app).get('/wrongroute').expect(404);
+
+      expect(res.body.message).toEqual(message);
+    });
+  });
 });

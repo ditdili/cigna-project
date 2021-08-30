@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest --verbose --watchAll"
+    "test": "jest --verbose --watchAll --coverage"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -21,4 +21,10 @@ router.get('/individuals', (req, res) => {
   res.json({ results });
 });
 
+router.get('*', (req, res) => {
+  res.status(404).send({
+    message: 'Route not found',
+  });
+});
+
 module.exports = router;
