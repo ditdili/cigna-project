@@ -1,5 +1,6 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { ItemList } from '../components/ItemList';
+import { Search } from '../components/Search';
 import { StoreProvider } from '../features/store';
 
 const returnValues = {
@@ -21,6 +22,7 @@ describe('ItemList component', () => {
 
     render(
       <StoreProvider>
+        <Search />
         <ItemList />
       </StoreProvider>
     );
@@ -37,13 +39,6 @@ describe('ItemList component', () => {
     const [columnNames] = within(table).getAllByRole('rowgroup');
     expect(within(columnNames).getByText(/name/i)).toBeInTheDocument();
     expect(within(columnNames).getByText(/specialty/i)).toBeInTheDocument();
-  });
-
-  test('should call the right api', () => {
-    expect(window.fetch).toHaveBeenCalledWith(
-      'http://localhost:5000/individuals'
-    );
-    expect(window.fetch).toHaveBeenCalledTimes(1);
   });
 
   test('should return a table body with rows and data provided', async () => {

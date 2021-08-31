@@ -1,23 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStore } from '../features/store';
 
 export const ItemList = () => {
-  const { list, setList } = useStore();
-
-  useEffect(() => {
-    let mounted = true;
-    const getIndividuals = async () => {
-      const response = await fetch('http://localhost:5000/individuals');
-      const { results } = await response.json();
-
-      if (mounted) {
-        setList(results);
-      }
-    };
-
-    getIndividuals();
-    return () => (mounted = false);
-  }, [setList]);
+  const { list } = useStore();
 
   return (
     <>
