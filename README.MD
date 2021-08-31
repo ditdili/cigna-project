@@ -75,7 +75,7 @@
 - **materializecss** was used for simplifying the styling
 - Implemented custom useContext hook for the state updates and the access in the components
 - Added ability in Search component to send query parameter based on the input text to fetch the filtered data
-  ![img-client-2](img/client-query.png?raw=true)
+  ![img-client-2](img/client-query-param.png?raw=true)
 - used **react-testing-library** and **react-test-renderer** for testing purposes
 
 #### Testing Server:
