@@ -11,10 +11,15 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.js"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --runInBand --verbose  --coverage",
+    "test": "react-scripts test --runInBand --verbose --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

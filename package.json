@@ -4,5 +4,20 @@
   "main": "index.js",
   "author": "ditdili <aliyevmaqsud@gmail.com>",
   "description": "Magsud Aliyev enntry for Cigna interview challenge",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "scripts": {
+    "bootstrap-server": "yarn --cwd ./server install",
+    "bootstrap-client": "yarn --cwd ./client install",
+    "bootstrap": "concurrently yarn:bootstrap-*",
+    "dev-server": "yarn --cwd ./server start",
+    "dev-client": "yarn --cwd ./client start",
+    "start": "concurrently yarn:dev-* -k",
+    "server-run-test": "yarn --cwd ./server test",
+    "client-run-test": "yarn --cwd ./client test",
+    "test-server": "concurrently yarn:dev-server yarn:server-run-test -k",
+    "test-client": "concurrently yarn:start yarn:client-run-test -k"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
 }
